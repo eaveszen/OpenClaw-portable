@@ -1,0 +1,77 @@
+# Moltbot 配置说明
+
+## 选择使用的模型
+
+编辑 `moltbot.json` 中的 `agent.model.primary` 字段：
+
+```json
+"agent": {
+  "model": {
+    "primary": "供应商名称/模型ID"
+  }
+}
+```
+
+## 可用的模型
+
+根据当前配置，你可以选择：
+
+1. **OpenAI 代理模型**
+   - `"openai-proxy/gpt-4o"` - GPT-4o
+   - `"openai-proxy/gpt-4o-mini"` - GPT-4o Mini
+
+2. **Claude 代理模型**
+   - `"claude-proxy/claude-3-5-sonnet-20241022"` - Claude 3.5 Sonnet
+
+3. **Ollama 本地模型**（需要先安装 Ollama 并下载模型）
+   - `"ollama/qwen2.5-coder:32b"` - Qwen2.5 Coder 32B
+   - `"ollama/deepseek-r1:32b"` - DeepSeek R1 32B
+
+## 示例
+
+### 使用 GPT-4o
+```json
+"agent": {
+  "model": {
+    "primary": "openai-proxy/gpt-4o"
+  }
+}
+```
+
+### 使用 Claude
+```json
+"agent": {
+  "model": {
+    "primary": "claude-proxy/claude-3-5-sonnet-20241022"
+  }
+}
+```
+
+### 使用本地 Ollama 模型
+```json
+"agent": {
+  "model": {
+    "primary": "ollama/qwen2.5-coder:32b"
+  }
+}
+```
+
+## 修改 baseURL
+
+如需使用自己的代理地址，修改对应供应商的 `baseUrl`：
+
+```json
+"openai-proxy": {
+  "baseUrl": "https://你的代理地址.com/v1",
+  "apiKey": "${OPENAI_API_KEY}"
+}
+```
+
+## API Key 配置
+
+在 `.env` 文件中设置对应的 API Key：
+
+```
+OPENAI_API_KEY=sk-your-key-here
+ANTHROPIC_API_KEY=sk-ant-your-key-here
+```
