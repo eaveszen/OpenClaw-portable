@@ -27,3 +27,7 @@ Node.js and dependencies will be downloaded automatically on first run.
 - **Custom model configuration**: `moltbot/moltbot.json`
 
 Official site: https://molt.bot/
+
+---
+
+Follow me on X: https://x.com/flateaves

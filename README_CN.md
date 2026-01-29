@@ -25,4 +25,8 @@ Linux / macOS  :  chmod +x run.sh && ./run.sh
 - **APIKey环境变量**: `moltbot/.env`
 - **自定义模型配置文件**: `moltbot/moltbot.json`
 
-官网: https://molt.bot/ 
+官网: https://molt.bot/
+
+---
+
+关注我的 X: https://x.com/flateaves 
