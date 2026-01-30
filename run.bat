@@ -17,12 +17,12 @@ if not exist "%NODE_DIR%\node.exe" (
 )
 
 set "PATH=%NODE_DIR%;%PATH%"
-set "CLAWDBOT_CONFIG_PATH=%SCRIPT_DIR%moltbot\moltbot.json"
+set "CLAWDBOT_CONFIG_PATH=%SCRIPT_DIR%openclaw\openclaw.json"
 
-cd /d "%SCRIPT_DIR%moltbot"
+cd /d "%SCRIPT_DIR%openclaw"
 
 echo ==========================================
-echo   Moltbot 启动选项
+echo   OpenClaw 启动选项
 echo ==========================================
 echo 1. 快速启动 (默认)
 echo 2. 升级 Moltbot
@@ -50,30 +50,30 @@ echo.
 :CHOICE_DONE
 
 if %CHOICE%==2 (
-    echo 升级 Moltbot...
+    echo 升级 OpenClaw...
     echo 备份配置文件...
-    copy moltbot.json moltbot.json.backup >nul 2>&1
+    copy openclaw.json openclaw.json.backup >nul 2>&1
     copy .env .env.backup >nul 2>&1
     
     echo 下载最新版本...
     cd /d "%SCRIPT_DIR%"
-    powershell -Command "Invoke-WebRequest -Uri 'https://github.com/moltbot/moltbot/archive/refs/heads/main.zip' -OutFile 'moltbot-latest.zip'"
+    powershell -Command "Invoke-WebRequest -Uri 'https://github.com/openchatai/openclaw/archive/refs/heads/main.zip' -OutFile 'openclaw-latest.zip'"
     
     echo 解压并覆盖...
-    powershell -Command "Expand-Archive -Path 'moltbot-latest.zip' -DestinationPath '.' -Force"
-    if exist moltbot.backup rd /s /q moltbot.backup
-    move moltbot moltbot.backup >nul 2>&1
-    move moltbot-main moltbot
+    powershell -Command "Expand-Archive -Path 'openclaw-latest.zip' -DestinationPath '.' -Force"
+    if exist openclaw.backup rd /s /q openclaw.backup
+    move openclaw openclaw.backup >nul 2>&1
+    move openclaw-main openclaw
     
     echo 恢复配置文件...
-    copy moltbot.backup\moltbot.json moltbot\ >nul 2>&1
-    if errorlevel 1 move moltbot.json.backup moltbot\moltbot.json >nul 2>&1
-    copy moltbot.backup\.env moltbot\ >nul 2>&1
-    if errorlevel 1 move .env.backup moltbot\.env >nul 2>&1
+    copy openclaw.backup\openclaw.json openclaw\ >nul 2>&1
+    if errorlevel 1 move openclaw.json.backup openclaw\openclaw.json >nul 2>&1
+    copy openclaw.backup\.env openclaw\ >nul 2>&1
+    if errorlevel 1 move .env.backup openclaw\.env >nul 2>&1
     
-    del moltbot-latest.zip
+    del openclaw-latest.zip
     
-    cd /d "%SCRIPT_DIR%moltbot"
+    cd /d "%SCRIPT_DIR%openclaw"
     echo 安装依赖...
     "%NODE_DIR%\npm.cmd" install
     echo 构建项目...

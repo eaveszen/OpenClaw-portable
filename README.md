@@ -1,4 +1,4 @@
-# Moltbot Cross-Platform Portable
+# OpenClaw Cross-Platform Portable
 
 [中文版](README_CN.md) | English
 
@@ -13,7 +13,7 @@ Node.js and dependencies will be downloaded automatically on first run.
 
 ## ⚠️ First-time Setup Required
 
-### 1. Edit configuration file `moltbot/moltbot.json`
+### 1. Edit configuration file `openclaw/openclaw.json`
 
 **Must modify the following sensitive information (otherwise it won't work):**
 
@@ -23,10 +23,10 @@ Node.js and dependencies will be downloaded automatically on first run.
 - **Line 66** `proxy`: Replace with your Telegram proxy address (optional)
 
 ## Configuration Files
-- **API Key environment variables**: `moltbot/.env`
-- **Custom model configuration**: `moltbot/moltbot.json`
+- **API Key environment variables**: `openclaw/.env`
+- **Custom model configuration**: `openclaw/openclaw.json`
 
-Official site: https://molt.bot/
+Official site: https://openclaw.ai/
 
 ---
 

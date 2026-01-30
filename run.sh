@@ -36,15 +36,15 @@ if [ ! -d "$SCRIPT_DIR/$NODE_DIR" ]; then
 fi
 
 export PATH="$SCRIPT_DIR/$NODE_DIR/bin:$PATH"
-export CLAWDBOT_CONFIG_PATH="$SCRIPT_DIR/moltbot/moltbot.json"
+export CLAWDBOT_CONFIG_PATH="$SCRIPT_DIR/openclaw/openclaw.json"
 
-cd "$SCRIPT_DIR/moltbot"
+cd "$SCRIPT_DIR/openclaw"
 
 echo "=========================================="
-echo "  Moltbot 启动选项"
+echo "  OpenClaw 启动选项"
 echo "=========================================="
 echo "1. 快速启动 (默认)"
-echo "2. 升级 Moltbot"
+echo "2. 升级 OpenClaw"
 echo "3. 重装依赖"
 echo "4. 配置向导"
 echo "=========================================="
@@ -60,28 +60,28 @@ fi
 
 case "$CHOICE" in
     2)
-        echo "升级 Moltbot..."
+        echo "升级 OpenClaw..."
         echo "备份配置文件..."
-        cp moltbot.json moltbot.json.backup 2>/dev/null || true
+        cp openclaw.json openclaw.json.backup 2>/dev/null || true
         cp .env .env.backup 2>/dev/null || true
         
         echo "下载最新版本..."
         cd "$SCRIPT_DIR"
-        curl -L -o moltbot-latest.tar.gz "https://github.com/moltbot/moltbot/archive/refs/heads/main.tar.gz"
+        curl -L -o openclaw-latest.tar.gz "https://github.com/openchatai/openclaw/archive/refs/heads/main.tar.gz"
         
         echo "解压并覆盖..."
-        tar -xzf moltbot-latest.tar.gz
-        rm -rf moltbot.backup
-        mv moltbot moltbot.backup
-        mv moltbot-main moltbot
+        tar -xzf openclaw-latest.tar.gz
+        rm -rf openclaw.backup
+        mv openclaw openclaw.backup
+        mv openclaw-main openclaw
         
         echo "恢复配置文件..."
-        cp moltbot.backup/moltbot.json moltbot/ 2>/dev/null || mv moltbot.json.backup moltbot/moltbot.json 2>/dev/null || true
-        cp moltbot.backup/.env moltbot/ 2>/dev/null || mv .env.backup moltbot/.env 2>/dev/null || true
+        cp openclaw.backup/openclaw.json openclaw/ 2>/dev/null || mv openclaw.json.backup openclaw/openclaw.json 2>/dev/null || true
+        cp openclaw.backup/.env openclaw/ 2>/dev/null || mv .env.backup openclaw/.env 2>/dev/null || true
         
-        rm -f moltbot-latest.tar.gz
+        rm -f openclaw-latest.tar.gz
         
-        cd "$SCRIPT_DIR/moltbot"
+        cd "$SCRIPT_DIR/openclaw"
         echo "安装依赖..."
         npm install
         echo "构建项目..."

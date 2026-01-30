@@ -1,4 +1,4 @@
-# Moltbot 跨平台便携版
+# OpenClaw 跨平台便携版
 
 中文 | [English](README.md)
 
@@ -12,7 +12,7 @@ Linux / macOS  :  chmod +x run.sh && ./run.sh
 首次运行会自动下载Node.js和依赖。
 ## ⚠️ 首次使用必读
 
-### 1. 修改配置文件 `moltbot/moltbot.json`
+### 1. 修改配置文件 `openclaw/openclaw.json`
 
 **必须修改以下敏感信息（否则无法正常使用）：**
 
@@ -22,10 +22,10 @@ Linux / macOS  :  chmod +x run.sh && ./run.sh
 - **第66行** `proxy`: 替换为你的Telegram代理地址（可空）
 
 ## 配置文件
-- **APIKey环境变量**: `moltbot/.env`
-- **自定义模型配置文件**: `moltbot/moltbot.json`
+- **APIKey环境变量**: `openclaw/.env`
+- **自定义模型配置文件**: `openclaw/openclaw.json`
 
-官网: https://molt.bot/
+官网: https://openclaw.ai/
 
 ---
 
