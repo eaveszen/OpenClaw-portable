@@ -13,7 +13,7 @@ Node.js and dependencies will be downloaded automatically on first run.
 
 ## ⚠️ First-time Setup Required
 
-### 1. Edit configuration file `openclaw/openclaw.json`
+### 1. 编辑配置文件 `openclaw/openclaw.json`
 
 **Must modify the following sensitive information (otherwise it won't work):**
 
